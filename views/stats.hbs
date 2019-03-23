@@ -1,0 +1,35 @@
+{{> header }}
+<div class="jumbotron">
+    <div class="container custom">
+        <h1 class="display-3">Stats time!</h1>
+        <p>This page is filled with funny stats and useful information.</p>
+        <h3>The most popular event currently is: {{mostPopular}}</h3>
+        <h3>The most popular city currently is: {{populartown}}</h3>
+    </div>
+</div>
+
+<div class="container">
+    <!-- Example row of columns -->
+    <div class="row">
+        <div class="col-md-4">
+            <h2>Events per country</h2>
+            {{#each percountry}}
+                <p>{{this.Name}}: {{this.NumberOfEvents}}</p>
+            {{/each}}
+        </div>
+        <div class="col-md-4">
+            <h2>Participants at {{mostPopular}}:</h2>
+            {{#each participantlist}}
+                <p>{{this.firstname}}</p>
+            {{/each}}
+        </div>
+        <div class="col-md-4">
+            <h2>Events per category</h2>
+            {{#each percategory}}
+                <p>{{this.CategName}}: {{this.NumberOfEvents}}</p>
+            {{/each}}
+        </div>
+    </div>
+</div>
+
+{{> footer }}

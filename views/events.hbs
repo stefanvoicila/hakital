@@ -1,0 +1,65 @@
+{{> header }}
+
+<div class = "container">
+    <h2> Add Events </h2>
+
+    {{#if errors}}
+        {{#each errors}}
+            <div class="alert alert-danger" role="alert">
+                {{this.msg}}
+            </div>
+        {{/each}}
+    {{/if}}
+
+    <form method="POST" action="/events">
+        <div class="form-group">
+            <label for="eventName">Name</label>
+            <input type="text" class="form-control" name="eventName" placeholder="Event Name">
+        </div>
+        <div class="form-group">
+            <label for="eventDescription">Description</label>
+            <input type="text" class="form-control" name="eventDescription" placeholder="Description">
+        </div>
+        <div class="form-group">
+            <label for="eventCategory">Category</label>
+            <select class="form-control" name="eventCategory">
+                <option>Fun</option>
+                <option>Outdoor</option>
+                <option>Learning</option>
+                <option>Environment</option>
+                <option>Sport</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="eventCity">City</label>
+            <select class="form-control" name="eventCity">
+                <option>Bucharest</option>
+                <option>Cluj</option>
+                <option>Brasov</option>
+                <option>Constanta</option>
+                <option>Iasi</option>
+                <option>Berlin</option>
+                <option>Frankfurt</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="eventSponsor">Sponsor</label>
+            <select class="form-control" name="eventSponsor">
+                <option>Orange</option>
+                <option>Vodafone</option>
+                <option>Emag</option>
+                <option>Visa</option>
+                <option>ING</option>
+            </select>
+            <div class="form-group">
+            <label for="eventCountry">Country</label>
+            <select class="form-control" name="eventCountry">
+                <option>Romania</option>
+                <option>Germania</option>
+            </select>
+        </div>
+        <button type="submit" class="btn custombtn">Add Event</button>
+    </form>
+</div>
+
+{{> footer }}

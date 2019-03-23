@@ -1,0 +1,21 @@
+body {
+  margin: 0; }
+
+.customevent{
+  text-align: center;
+  margin-right: 200px;
+  border: 1px red !important;
+}
+
+.custom{
+  text-align: center;
+}
+
+.gallerycenter{
+  margin: auto;
+}
+
+.custombtn{
+  background: #343a40;
+  color: white !important;
+}

@@ -1,0 +1,130 @@
+{{> header }}
+
+<div class = "container">
+    <h2>Edit Event </h2>
+
+    {{#if errors}}
+        {{#each errors}}
+            <div class="alert alert-danger" role="alert">
+                {{this.msg}}
+            </div>
+        {{/each}}
+    {{/if}}
+
+    <form method="POST" action="/edit-event/:id">
+        <div class="form-group">
+            <label for="eventName">Name</label>
+            <input type="text" class="form-control" name="eventName" value={{event.EventName}}>
+        </div>
+        <div class="form-group">
+            <label for="eventDescription">Description</label>
+            <input type="text" class="form-control" name="eventDescription" value={{event.Description}}>
+        </div>
+        <div class="form-group">
+            <label for="eventCategory">Category</label>
+            <select class="form-control" name="eventCategory">
+                <option 
+                    {{#if_eq event.CategName "Fun"}}
+                        selected
+                    {{/if_eq}}>Fun</option>
+                <option 
+                    {{#if_eq event.CategName "Outdoor"}}
+                        selected
+                    {{/if_eq}}>Outdoor</option>
+                <option 
+                    {{#if_eq event.CategName "Learning"}}
+                        selected
+                    {{/if_eq}} >Learning</option>
+                <option 
+                    {{#if_eq event.CategName "Environment"}}
+                        selected
+                    {{/if_eq}} >Environment</option>
+                <option 
+                    {{#if_eq event.CategName "Sport"}}
+                        selected
+                    {{/if_eq}} >Sport</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="eventCity">City</label>
+            <select class="form-control" name="eventCity">
+                <option
+                    {{#if_eq event.CityName "Bucharest"}}
+                        selected
+                    {{/if_eq}} >Bucharest</option>
+                <option
+                    {{#if_eq event.CityName "Cluj"}}
+                        selected
+                    {{/if_eq}} >Cluj</option>
+                <option
+                    {{#if_eq event.CityName "Brasov"}}
+                        selected
+                    {{/if_eq}} >Brasov</option>
+                <option
+                    {{#if_eq event.CityName "Constanta"}}
+                        selected
+                    {{/if_eq}} >Constanta</option>
+                <option
+                    {{#if_eq event.CityName "Iasi"}}
+                        selected
+                    {{/if_eq}} >Iasi</option>
+                <option
+                    {{#if_eq event.CityName "Berlin"}}
+                        selected
+                    {{/if_eq}} >Berlin</option>
+                <option 
+                    {{#if_eq event.CityName "Frankfurt"}}
+                        selected
+                    {{/if_eq}}>Frankfurt</option>
+                <option
+                    {{#if_eq event.CityName "Paris"}}
+                        selected
+                    {{/if_eq}} >Paris</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="eventSponsor">Sponsor</label>
+            <select class="form-control" name="eventSponsor">
+                <option
+                    {{#if_eq event.Name "Orange"}}
+                        selected
+                    {{/if_eq}} >Orange</option>
+                <option
+                    {{#if_eq event.Name "Vodafone"}}
+                        selected
+                    {{/if_eq}} >Vodafone</option>
+                <option
+                    {{#if_eq event.Name "Emag"}}
+                        selected
+                    {{/if_eq}} >Emag</option>
+                <option
+                    {{#if_eq event.Name "Visa"}}
+                        selected
+                    {{/if_eq}} >Visa</option>
+                <option
+                    {{#if_eq event.Name "ING"}}
+                        selected
+                    {{/if_eq}} >ING</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="eventCountry">Country</label>
+            <select class="form-control" name="eventCountry">
+                <option
+                    {{#if_eq event.Country "Romania"}}
+                        selected
+                    {{/if_eq}} >Romania</option>
+                <option
+                    {{#if_eq event.Country "Germania"}}
+                        selected
+                    {{/if_eq}}  >Germania</option>
+            </select>
+        </div>
+        <div class="form-group" style="visibility: hidden">
+            <input type="text" name="id" class="form-control" value={{event.Id}}>
+        </div>
+        <button type="submit" class="btn custombtn">Done</button>
+    </form>
+</div>
+
+{{> footer }}

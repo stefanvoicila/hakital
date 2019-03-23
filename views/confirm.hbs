@@ -1,0 +1,17 @@
+{{> header }}
+
+<div class="container custom">
+        <h1 class="titleR">Are you sure?</h1>
+    <button class="btn custombtn" onclick="yes({{Id}})"> YES</button>
+    <button class="btn custombtn" onclick="no()"> NO</button>
+</div>
+<script>
+    function yes(Id) {
+            location.href = "/event_final_delete/" + Id;
+    };
+    function no() {
+        location.href = "/";
+    };
+</script> 
+
+{{> footer }}

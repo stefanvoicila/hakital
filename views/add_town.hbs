@@ -1,0 +1,14 @@
+{{> header }}
+    
+    <div class = "container">
+        <h2> Add your City </h2>
+
+        <form method="POST" action="/add-city">
+            <div class="form-group">
+                <label for="cityName">City Name</label>
+                <input type="text" class="form-control" name="cityName" placeholder="City">
+            </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+    </div>
+{{> footer }}

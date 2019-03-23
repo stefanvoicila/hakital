@@ -1,0 +1,28 @@
+{{> header }}
+
+<div class="jumbotron">
+    <div class="container custom">
+        <h1 class="display-3">Your events</h1>
+        <p>This page contains all the events you have followed.</p>
+        <h3>Your last followed event is: {{lastfollow}}</h3>
+    </div>
+</div>
+
+{{#each myevents}}
+    <div class="card">
+        <h5 class="card-header">In {{this.CityName}}:</h5>
+        <div class="card-body">
+            <h5 class="card-title">{{this.Name}}</h5>
+            <p class="card-text">{{this.Description}}</p>      
+            <a onclick="followEvent({{this.Id}})" class="btn custombtn">See Details</a>    
+        </div>
+    </div>
+{{/each}}
+
+<script>
+    function followEvent(Id){
+        location.href = "event-detail/" + Id;
+    };
+</script>
+
+{{> footer }}

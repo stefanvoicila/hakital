@@ -1,0 +1,24 @@
+{{> header }}
+
+<div class = "container custom">
+    <h2>{{events.EventName}}</h2>
+</div>
+
+<div class="card">
+    <h5 class="card-header custom">In {{events.CityName}}</h5>
+    <div class="card-body custom">
+        <h5 class="card-title">{{events.EventName}}</h5>
+        <p class="card-text">{{events.Description}}</p> 
+        <p class="font-weight-bold">Sponsored by: {{events.Name}}</p>
+        {{#if_eq does 0}}
+            <form method="POST" action="/event-detail/{{events.Id}}">
+                <button type="submit" class="btn custombtn">Join event</button>
+            </form>
+        {{/if_eq}}
+        {{#if_eq does 1}}
+            <p class="btn custombtn">You already follow this event</p>
+        {{/if_eq}}
+    </div>
+</div>
+
+{{> footer }}

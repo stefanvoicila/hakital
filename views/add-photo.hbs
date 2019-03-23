@@ -1,0 +1,41 @@
+{{> header }}
+
+<div class = "container">
+    <h2> Add Photos </h2>
+
+    {{#if errors}}
+        {{#each errors}}
+            <div class="alert alert-danger" role="alert">
+                {{this.msg}}
+            </div>
+        {{/each}}
+    {{/if}}
+
+    <form method="POST" action="/add-photo">
+        <div class="form-group">
+            <label for="photoLink">Picture Link</label>
+            <input type="text" name="photoLink" id="photoLink" class="form-control" placeholder="https://www.imgur.com/erjk3jw">
+        </div>
+
+        <div class="form-group">
+            <label for="photoName">Name</label>
+            <input type="text" name="photoName" id="photoName" class="form-control" placeholder="London gathering.">
+        </div>
+
+         <div class="form-group">
+            <label for="photoDesc">Description</label>
+            <input type="text" name="photoDesc" id="photoName" class="form-control" placeholder="People having fun at the park in July 2016.">
+        </div>
+
+        <div class="form-group" style="visibility: hidden">
+            <input type="number" name="PhotoProfile" class="form-control" value=0>
+        </div>
+        <button type="submit" class="btn custombtn">Upload</button>
+    </form>
+</div>
+</body>
+
+
+<div class="space">
+    {{> footer}}
+</div>

@@ -1,0 +1,16 @@
+{{> header }}
+<div class="container custom">
+    <h1>Are you sure you want to delete the picture?</h1>
+    <button class="btn custombtn" style="margin-right: 30px;" onclick="yes({{Id}})">Yes</button>
+    <button class="btn custombtn" style="margin-left: 30px;" onclick="no()">No</button>
+</div>
+
+<script>
+    function yes(Id){
+        location.href = "/picture-final-delete/" + Id;
+    }
+    function no(){
+        location.href = "/gallery"
+    }
+</script>
+{{> footer }}

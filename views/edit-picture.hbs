@@ -1,0 +1,37 @@
+{{> header }}
+
+<div class = "container">
+    <h2> Edit the Photo </h2>
+
+    {{#if errors}}
+        {{#each errors}}
+            <div class="alert alert-danger" role="alert">
+                {{this.msg}}
+            </div>
+        {{/each}}
+    {{/if}}
+
+    <form method="POST" action="/picture/:id">
+        <div class="form-group">
+            <label for="photoLink">Picture Link</label>
+            <input type="text" name="photoLink" id="photoLink" class="form-control" placeholder="https://www.imgur.com/erjk3jw" value="{{pic.Link}}">
+        </div>
+
+        <div class="form-group">
+            <label for="photoName">Name</label>
+            <input type="text" name="photoName" id="photoName" class="form-control" placeholder="London gathering" value="{{pic.EventName}}">
+        </div>
+
+         <div class="form-group">
+            <label for="photoDesc">Description</label>
+            <input type="text" name="photoDesc" id="photoName" class="form-control" value="{{pic.Description}}" placeholder="People drinking alcoholic beverages and that's totally not coke. Drugs are bad.">
+        </div>
+        <div class="form-group" style="visibility: hidden">
+            <input type="text" name="id" class="form-control" value={{pic.Id}}>
+        </div>
+        <button type="submit" class="btn custombtn">Done</button>
+    </form>
+</div>
+</body>
+
+{{> footer }}
