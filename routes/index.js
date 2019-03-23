@@ -1,5 +1,6 @@
 var express = require('express');
 var router = express.Router();
+var LINQ = require('node-linq').LINQ;
 
 var passport = require('passport');
 
