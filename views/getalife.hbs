@@ -1,0 +1,123 @@
+{{> header }}
+
+<div class = "container">
+    <h2> Find Events </h2>
+
+    {{#if errors}}
+        {{#each errors}}
+            <div class="alert alert-danger" role="alert">
+                {{this.msg}}
+            </div>
+        {{/each}}
+    {{/if}}
+
+    <form method="POST" action="/getalife">
+        <div class="form-group">
+            <label for="eventCategory">Choose your preferred type of action</label>
+            <select class="form-control" name="eventCategory" id = "eventCategory">
+                <option selected = "selected">-</option>
+                <option value="Sport">Sport</option>
+                <option value="Gaming">Gaming</option>
+                <option value="Study">Study</option>
+                <option value="Going out">Goin' out</option>
+            </select>
+        </div>
+        <div class="form-group" id = "eventSport">
+            <label for="eventSport">Ce sport vrei sa faci, fa?</label>
+            <select class="form-control" name="eventSport">
+                <option selected = "selected">-</option>
+                <option>Fotbal</option>
+                <option>Baschet</option>
+                <option>Jogging</option>
+                <option>Tenis</option>
+                <option>Ping pong</option>
+            </select>
+        </div>
+        <div class="form-group" id = "eventGame">
+            <label for="eventGame">Learn to play skrub</label>
+            <select class="form-control" name="eventGame">
+                <option selected= "selected">-</option>
+                <option>League of Legends</option>
+                <option>DOTA 2</option>
+                <option>Overwatch</option>
+                <option>World of Warcraft</option>
+                <option>Fortnite</optio n>
+                <option>CS:GO</option>
+            </select>
+        </div>
+        <div class="form-group" id = "eventOutside">
+            <label for="eventOutside">What do out</label>
+            <select class="form-control" name="eventOutside">
+                <option selected = "selected">-</option>
+                <option>Drinkin'</option>
+                <option>THOSE R NOT DRUGS</option>
+                <option>Take a walk</option>
+                <option>Go hiking</option>
+                <option>Walk my dog</option>
+                <option>Watch a movie</option>
+            </select>
+        </div>
+        <div class="form-group" id = "eventStudy">
+            <label for="eventStudy">What do you want to study?</label>
+            <select class="form-control" name="eventStudy">
+                <option selected = "selected">-</option>
+                <option>Math</option>
+                <option>Programming</option>
+                <option>Languages</option>
+                <option>History</option>
+                <option>Geography</option>
+                <option>Arts</option>
+                <option>Film</option>
+                <option>Cooking</option>
+                <option>Biology</option>
+            </select>
+        </div>
+        <div class="form-group" id = "eventStudyRange">
+            <label for="eventStudyRange">On a scale from 1 to 5, how familiar are you with this field?</label>
+            <input type="range" class="form-control-range" name="eventStudyRange" min=1 max=5>
+        </div>
+        <button type="submit" class="btn custombtn">Add Event</button>
+    </form>
+</div>
+
+<script>
+
+    $('#eventSport').hide();
+    $('#eventGame').hide();
+    $('#eventOutside').hide();
+    $('#eventStudy').hide();
+    $('#eventStudyRange').hide();
+    $('#eventCategory').change(function(){
+        if($(this).val() == "Sport"){
+            $('#eventSport').show();
+        }
+        else{
+            $('#eventSport').hide();
+        }
+
+        if($(this).val() == "Gaming"){
+            $('#eventGame').show();
+        }
+        else{
+            $('#eventGame').hide();
+        }
+
+        if($(this).val() == "Going out"){
+            $('#eventOutside').show();
+        } 
+        else{
+            $('#eventOutside').hide();
+        }
+
+        if($(this).val() == "Study"){
+            $('#eventStudy').show();
+            $('#eventStudyRange').show();
+        }
+        else{
+            $('#eventStudy').hide();
+            $('#eventStudyRange').hide();
+        }
+    });
+</script>
+
+{{> footer }}

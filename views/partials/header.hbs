@@ -20,22 +20,22 @@
             <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
         <![endif]-->
         <nav class="navbar navbar-expand-md navbar-dark bg-dark head">
-            <a class="navbar-brand" href="/">Eventsy.</a>
+            <a class="navbar-brand" href="/">S.O.S.</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
 
             <div class="collapse navbar-collapse" id="navbarsExampleDefault">
                 <ul class="navbar-nav mr-auto">
-                    <li class="nav-item active">
-                        <a class="nav-link" href="/">Home</a>
-                    </li>
+                    <!--<li class="nav-item active">
+                        <a class="nav-link" href="/">Hello Home</a>
+                    </li> -->
                     {{#if isAuthenticated}}
                         <li class="nav-item dropdown show active">
-                            <a class="nav-link dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" 
-                                aria-haspopup="true" aria-expanded="false">Events</a>
+                            <a class="nav-link dropdown-toggle active" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" 
+                                aria-haspopup="true" aria-expanded="false">Hello Home</a>
                             <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                                <a class="dropdown-item" href="/eventlist">Event list</a>
+                                <a class="dropdown-item" href="/eventlist">You are what you eat</a>
                                 <a class="dropdown-item" href="/events">Add event</a>
                                 <a class="dropdown-item" href="/my-events">Followed Events</a>
                             </div>
@@ -49,7 +49,7 @@
                             </div>
                         </li>
                         <li class="nav-item active">
-                            <a class="nav-link" href="/stats">Stats</a>
+                            <a class="nav-link" href="http://localhost:3000/Includes/sidebar-mancare.php">Stats</a>
                         </li>
                     {{else}}
                         <li class="nav-item active">

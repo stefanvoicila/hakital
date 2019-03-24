@@ -603,4 +603,125 @@ router.get('/stats', authenticationMiddleware(), function(req, res, next){
     
 });
 
+router.get('/getalife', authenticationMiddleware(), function(req, res, next){
+  res.render('getalife', {title: 'Find a fren'});
+});
+
+router.post('/getalife', authenticationMiddleware(), function(req, res, next){
+  const activity = req.body.eventCategory;
+  const sport = req.body.eventSport;
+  const game = req.body.eventGame;
+  const outside = req.body.eventOutside;
+  const study = req.body.eventStudy;
+  const studyRange = req.body.eventStudyRange;
+
+  const db = require('../db.js');
+
+  if(activity === "Sport")
+  {
+    var sportName;
+    db.query('SELECT Id FROM Interests WHERE Name = \'' + sport + '\'', function(err, res, fields){
+      if(err) throw (err);
+      else{
+        sportName = res[0].Id;
+      }
+    });
+    
+    setTimeout(function(){
+      db.query('INSERT INTO UsersEvent(UserId, InterestId) VALUES (?, ?)', [req.session.passport.user.user_id, sportName], function(error, results, fields){
+        if(error) throw (error);
+        else{
+          res.redirect('http://localhost:3000');
+        }
+      });
+    }, 500);
+  }
+
+  if(activity === "Gaming")
+  {
+    var gameId;
+    db.query('SELECT Id FROM Interests WHERE Name = \'' + game + '\'', function(err, res, fields){
+      if(err) throw (err);
+      else{
+        gameId = res[0].Id;
+      }
+    });
+    
+    setTimeout(function(){
+      db.query('INSERT INTO UsersEvent(UserId, InterestId) VALUES (?, ?)', [req.session.passport.user.user_id, gameId], function(error, results, fields){
+        if(error) throw (error);
+        else{
+          res.redirect('http://localhost:3000');
+        }
+      });
+    }, 500);
+  }
+
+  if(activity === "Study")
+  {
+    var interestId;
+    db.query('SELECT Id FROM Interests WHERE Name = \'' + study + '\'', function(err, res, fields){
+      if(err) throw (err);
+      else{
+        interestId = res[0].Id;
+      }
+    });
+    
+    setTimeout(function(){
+      db.query('INSERT INTO UsersEvent(UserId, InterestId, Knowledge) VALUES (?, ?, ?)', [req.session.passport.user.user_id, interestId, studyRange], function(error, results, fields){
+        if(error) throw (error);
+        else{
+          res.redirect('http://localhost:3000');
+        }
+      });
+    }, 500);
+  }
+
+
+  if(activity === "Going out")
+  {
+    var interestId;
+    db.query('SELECT Id FROM Interests WHERE Name = \'' + outside + '\'', function(err, res, fields){
+      if(err) throw (err);
+      else{
+        interestId = res[0].Id;
+      }
+    });
+    
+    setTimeout(function(){
+      db.query('INSERT INTO UsersEvent(UserId, InterestId) VALUES (?, ?)', [req.session.passport.user.user_id, interestId], function(error, results, fields){
+        if(error) throw (error);
+        else{
+          res.redirect('/');
+        }
+      });
+    }, 500);
+  }
+  setTimeout(function(){
+    var cevva;
+    ceva = 1+2;
+  }, 600);
+
+});
+
+router.get('/match', authenticationMiddleware(), function(err, res, next){
+  const db = require('../db.js');
+
+  var query = "SELECT UserId FROM UsersEvent " + 
+    "WHERE (SELECT InterestId FROM UsersEvent WHERE UserId = " + req.session.passport.user.user_id + " LIMIT 1) " +
+    "= (SELECT B.InterestId FROM UsersEvent as B WHERE UserId <> " + req.session.passport.user.user_id + ") AND UserId <> " + req.session.passport.user.user_id;
+
+    db.query(query, function(err, res, fields){
+      if(err) throw err;
+      else{
+        
+      }
+    })
+});
+
+  //var 
+
+  //db.query('SELECT Id FROM Interests WHERE Name = \'' + sport)
+//});
+
   module.exports = router;
